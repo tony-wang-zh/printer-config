@@ -28,25 +28,24 @@ M569 P0.3 S0                            ; physical drive 0.3 goes backwards
 M569 P0.4 S0                            ; physical drive 0.4 goes backwards
 
 
-M584 X0.0 Y0.1:0.2 Z0.3 E0.4             ; set drive mapping
-M92 X80.00 Y80.00 Z80.00 E80             ; set steps per mm U881.78
-M566 X600.00 Y600.00 Z120.00 E120.00     ; set maximum instantaneous speed changes (mm/min)
-M203 X3000.00 Y3000.00 Z1800.00 E1800.00 ; set maximum speeds (mm/min) U600
-M201 X300.00 Y300.00 Z250.00 E250.00     ; set accelerations (mm/s^2) U50
-M906 X800 Y800 Z800 E800 I30             ; set motor currents (mA) and motor idle factor in per cent
+M584 X0.0 Y0.1:0.2 Z0.3 U0.4             ; set drive mapping
+M92 X80.00 Y80.00 Z80.00 U881.78         ; set steps per mm U881.78
+M566 X600.00 Y600.00 Z120.00 U18.00     ; how much to set here? set maximum instantaneous speed changes (mm/min)
+M203 X3000.00 Y3000.00 Z1800.00 U240.00 ; set maximum speeds (mm/min) U600
+M201 X300.00 Y300.00 Z250.00 U30.00     ; set accelerations (mm/s^2) U50
+M906 X800 Y800 Z800 U800 I30             ; set motor currents (mA) and motor idle factor in per cent
 M84 S90                                  ; set idle timeout
 
 ; Axis Limits
-M208 X0 Y0 Z0 S1                       ; set axis minima U0
-M208 X370 Y313 Z175 S0                 ; set axis maxima U95
+M208 X0 Y0 Z0 U0 S1                       ; set axis minima U0
+M208 X370 Y313 Z175 U95 S0                 ; set axis maxima U95
 
 ; Endstops
+; 1 is highend, 2 is low end 
 M574 X1 S1 P"io0.in"                    ; configure switch-type (e.g. microswitch) endstop for low end on X via pin io0.in
 M574 Y2 S1 P"io1.in"                    ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin io1.in
 M574 Z2 S1 P"io3.in"                    ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin io3.in
-;M574 U1 S1 P"io4.in"                    ; configure switch-type (e.g. microswitch) endstop for low end on U via pin io4.in
-
-
+M574 U1 S1 P"io4.in"                    ; configure switch-type (e.g. microswitch) endstop for low end on U via pin io4.in
 
 ; NOT BEING USED ####
 ; Z-Probe
