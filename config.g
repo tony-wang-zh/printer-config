@@ -47,6 +47,11 @@ M574 Y2 S1 P"io1.in"                    ; configure switch-type (e.g. microswitc
 M574 Z2 S1 P"io3.in"                    ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin io3.in
 M574 U1 S1 P"io4.in"                    ; configure switch-type (e.g. microswitch) endstop for low end on U via pin io4.in
 
+; hobby servo 
+; see https://forum.duet3d.com/topic/36472/controlling-hobby-servos-with-6xd-mainboard/2
+M950 S0 C"vfd"  ; set servo 0 (S0) at vfd port 
+; M950 S3 C"vfd" Q50    ; might need to set to 50 hertz (Q50)
+
 ; NOT BEING USED ####
 ; Z-Probe
 M558 P0 H180 F120 T6000                 ; disable Z probe but set dive height, probe speed and travel speed
