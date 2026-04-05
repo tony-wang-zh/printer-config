@@ -49,8 +49,9 @@ M574 U1 S1 P"io4.in"                    ; configure switch-type (e.g. microswitc
 
 ; hobby servo 
 ; see https://forum.duet3d.com/topic/36472/controlling-hobby-servos-with-6xd-mainboard/2
-M950 S0 C"vfd"  ; set servo 0 (S0) at vfd port 
-; M950 S3 C"vfd" Q50    ; might need to set to 50 hertz (Q50)
+
+; M950 S0 C"vfd"
+; M42 P0 S0
 
 ; NOT BEING USED ####
 ; Z-Probe
@@ -61,11 +62,6 @@ M557 X15:215 Y15:195 S20                ; define mesh grid
 M140 H-1                                ; disable heated bed (overrides default heater mapping)
 
 ; Fans
-
-; Tools
-M563 P0 D0 F0                           ; define tool 0
-G10 P0 X0 Y0 Z0                         ; set tool 0 axis offsets
-G10 P0 R0 S0                            ; set initial tool 0 active and standby temperatures to 0C
 
 ; Custom Settings
 
