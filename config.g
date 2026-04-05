@@ -25,13 +25,13 @@ M569 P0.2 S1                            ; physical drive 0.2 goes forwards
 ; Z-AXIS
 M569 P0.3 S0                            ; physical drive 0.3 goes backwards
 ; U-AXIS
-M569 P0.4 S0                            ; physical drive 0.4 goes backwards
+M569 P0.4 S1                            ; physical drive 0.4 goes backwards
 
 
 M584 X0.0 Y0.1:0.2 Z0.3 U0.4             ; set drive mapping
 M92 X80.00 Y80.00 Z80.00 U881.78         ; set steps per mm U881.78
 M566 X600.00 Y600.00 Z120.00 U18.00     ; how much to set here? set maximum instantaneous speed changes (mm/min)
-M203 X3000.00 Y3000.00 Z1800.00 U240.00 ; set maximum speeds (mm/min) U600
+M203 X3000.00 Y3000.00 Z1800.00 U1200.00 ; set maximum speeds (mm/min) U600
 M201 X300.00 Y300.00 Z250.00 U30.00     ; set accelerations (mm/s^2) U50
 M906 X800 Y800 Z800 U800 I30             ; set motor currents (mA) and motor idle factor in per cent
 M84 S90                                  ; set idle timeout
